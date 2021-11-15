@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HTML5 & CSS3</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="header-container">
+            <header class="header">
+                <div class="header__section">
+                    <a href="#home">
+                        <h1>Web Tools</h1>
+                    </a>
+                </div>
+                <div class="header__section desktop">
+                    <nav class="nav">
+                        <a class="nav__link" href="#html">HTML</a>
+                        <a class="nav__link" href="#javascript">JavaScript</a>
+                        <a class="nav__link" href="#css">CSS</a>
+                    </nav>
+                </div>
+                <div class="header__section">
+                    <button class="cta-button desktop">Sign In</button>
+                    <button class="bars mobile" id="menuToggle">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </button>
+                </div>
+                <div class="menu mobile" id="menu">
+                    <nav class="nav">
+                        <a class="nav__link" href="#html">HTML</a>
+                        <a class="nav__link" href="#javascript">JavaScript</a>
+                        <a class="nav__link" href="#css">CSS</a>
+                    </nav>
+                </div>
+            </header>
+        </div>
+        <main>
+            <section id="home" class="section home-section">
+                <article class="section__content">
+                    <div class="hero">
+                        <h1>Web Tools</h1>
+                        <span>The Ultimate Trio</span>
+                    </div>
+                </article>
+            </section>
+            <section id="html" class="section html-section">
+                <article class="section__content">
+                    <div class="img-container">
+                        <img src="./assets/html.png" alt="html logo" />
+                    </div>
+                </article>
+            </section>
+            <section id="javascript" class="section javascript-section">
+                <article class="section__content">
+                    <div class="img-container">
+                        <img src="./assets/javascript.png" alt="javascript logo" />
+                    </div>
+                </article>
+            </section>
+            <section id="css" class="section css-section">
+                <article class="section__content">
+                    <div class="img-container">
+                        <img src="./assets/css.png" alt="css logo" />
+                    </div>
+                </article>
+            </section>
+        </main>
+    </body>
+    <script>
+        // Variables
+        const menuToggleButton = document.getElementById("menuToggle");
+        const menuElement = document.getElementById("menu");
+        const bars = document.getElementsByClassName("bar");
+        const navLinks = document.getElementsByClassName("nav__link");
+        // Functions
+        const menuToggleHandler = () => {
+            if (!menuElement.classList.contains("open")) {
+                menuElement.classList.add("open");
+                bars[1].classList.add("open");
+            } else {
+                menuElement.classList.remove("open");
+                bars[1].classList.remove("open");
+            }
+        };
+        const menuCloseHandler = () => {
+            if (menuElement.classList.contains("open")) {
+                menuElement.classList.remove("open");
+                bars[1].classList.remove("open");
+            }
+        };
+
+        // Event Listeners
+        menuToggleButton.addEventListener("click", menuToggleHandler);
+        for (let i = 0; i < navLinks.length; i++) {
+            navLinks[i].addEventListener("click", menuCloseHandler);
+        }
+    </script>
+</html>
